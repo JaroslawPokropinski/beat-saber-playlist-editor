@@ -1,13 +1,29 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
-import App from './App';
 import reportWebVitals from './reportWebVitals';
+import MainView from './views/MainView';
+import {
+  HashRouter as Router,
+  Switch,
+  Route,
+} from "react-router-dom";
+import EditView from './views/EditView';
 
 ReactDOM.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>,
+  <>
+    <Router>
+      <Switch>
+        <Route path="/playlist/:playlistFile">
+          <EditView />
+        </Route>
+        <Route path="/" exact>
+          <MainView />
+        </Route>
+      </Switch>
+    </Router>
+    
+  </>,
   document.getElementById('root')
 );
 
